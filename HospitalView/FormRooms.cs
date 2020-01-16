@@ -47,6 +47,7 @@ namespace HospitalView
                     dataGridView1.Columns[1].AutoSizeMode =
                         DataGridViewAutoSizeColumnMode.Fill;
                 }
+                label1.Visible = false;
             }
             catch (Exception ex)
             {
@@ -58,6 +59,7 @@ namespace HospitalView
         private void buttonUpd_Click(object sender, EventArgs e)
         {
             LoadData();
+            label1.Visible = false;
         }
 
         private void buttonCountPatients_Click(object sender, EventArgs e)
@@ -77,6 +79,35 @@ namespace HospitalView
                         DataGridViewAutoSizeColumnMode.Fill;
                     dataGridView1.Columns[4].HeaderText = "Занято";
                 }
+                label1.Text = "Составлено на " + DateTime.Now.ToString();
+                label1.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSelectFreePlaces_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<RoomViewModel> list = service.CountFreePlacesEachRoom();
+                if (list != null)
+                {
+                    dataGridView1.DataSource = list;
+                    dataGridView1.Columns[0].Visible = false;
+                    dataGridView1.Columns[1].Visible = true;
+                    dataGridView1.Columns[2].Visible = true;
+                    dataGridView1.Columns[3].Visible = true;
+                    dataGridView1.Columns[4].Visible = true;
+                    dataGridView1.Columns[1].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns[4].HeaderText = "Свободно в палате";
+                }
+                label1.Text = "Составлено на " + DateTime.Now.ToString();
+                label1.Visible = true;
             }
             catch (Exception ex)
             {

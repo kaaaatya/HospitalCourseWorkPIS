@@ -130,5 +130,27 @@ namespace HospitalController
             .ToList();
             return result;
         }
+
+        public int GetRoomNumberById(int roomId)
+        {
+            Room element = context.Rooms.FirstOrDefault(rec => rec.id == roomId);
+            int result = element.RoomNumber;
+            return result;
+        }
+
+        public List<RoomViewModel> CountFreePlacesEachRoom()
+        {
+            List<RoomViewModel> result = context.Rooms.Select(rec => new
+          RoomViewModel
+            {
+                id = rec.id,
+                RoomNumber = rec.RoomNumber,
+                Gender = rec.Gender,
+                Capacity = rec.Capacity,
+                Available = rec.Available
+            })
+            .ToList();
+            return result;
+        }
     }
 }

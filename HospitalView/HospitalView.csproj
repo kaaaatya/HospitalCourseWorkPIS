@@ -42,6 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -101,6 +104,12 @@
     <Compile Include="FormRooms.Designer.cs">
       <DependentUpon>FormRooms.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSickList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSickList.Designer.cs">
+      <DependentUpon>FormSickList.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSicknessHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRooms.resx">
       <DependentUpon>FormRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSickList.resx">
+      <DependentUpon>FormSickList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSicknessHistory.resx">
       <DependentUpon>FormSicknessHistory.cs</DependentUpon>

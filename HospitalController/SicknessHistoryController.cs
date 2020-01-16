@@ -148,5 +148,65 @@ namespace HospitalController
             int result = element.Id;
             return result;
         }
+
+        public int GetRoomIdByPatientId(int patienId)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.PatientCardId == patienId);
+            int result = element.RoomId;
+            return result;
+        }
+
+        public List<PatientCardViewModel> getTreatedNowOrderByFIO()
+        {
+            List<PatientCardViewModel> result = context.PatientCards.Where(rec => rec.IsTreatedNow == true).Select(rec => new
+           PatientCardViewModel
+            {
+                Id = rec.Id,
+                FIO = rec.FIO,
+                InsuranceCompany = rec.InsuranceCompany,
+                InsuranceNumber = rec.InsuranceNumber,
+                Passport = rec.Passport,
+                BirthDate = rec.BirthDate,
+                Address = rec.Address,
+                PhoneNumber = rec.PhoneNumber,
+                Status = rec.Status,
+                Gender = rec.Gender,
+                IsTreatedNow = rec.IsTreatedNow
+            }).OrderBy(rec => rec.FIO)
+            .ToList();
+            return result;
+        }
+
+        public void findSicknessHistory(int patientId, DateTime dateDis)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.PatientCardId ==
+         patientId && rec.DateReception==rec.Datedischarge);
+            if (element == null)
+            {
+                throw new Exception("Не удалось найти пациента");
+            }
+            freePatient(element, dateDis);
+            return;
+        }
+
+        public void freePatient(SicknessHistory model, DateTime date)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.Id ==
+          model.Id);
+            if(date < element.DateReception)
+            {
+                throw new Exception("Дата выписки должна быть больше даты приема");
+            }
+            element.Datedischarge = date;
+            context.SaveChanges();
+
+            Room element1 = context.Rooms.FirstOrDefault(rec => rec.id == model.RoomId);
+            element1.Available = element1.Available + 1;
+            context.SaveChanges();
+
+            PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.Id == model.PatientCardId);
+            element2.IsTreatedNow = false;
+            context.SaveChanges();
+        }
     }
 }
