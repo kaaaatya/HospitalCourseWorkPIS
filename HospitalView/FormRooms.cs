@@ -43,7 +43,7 @@ namespace HospitalView
                     dataGridView1.Columns[1].Visible = true;
                     dataGridView1.Columns[2].Visible = true;
                     dataGridView1.Columns[3].Visible = true;
-                    dataGridView1.Columns[4].Visible = true;
+                    dataGridView1.Columns[4].Visible = false;
                     dataGridView1.Columns[1].AutoSizeMode =
                         DataGridViewAutoSizeColumnMode.Fill;
                 }
@@ -58,6 +58,31 @@ namespace HospitalView
         private void buttonUpd_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void buttonCountPatients_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<RoomViewModel> list = service.CountPationsInEachRoom();
+                if (list != null)
+                {
+                    dataGridView1.DataSource = list;
+                    dataGridView1.Columns[0].Visible = false;
+                    dataGridView1.Columns[1].Visible = true;
+                    dataGridView1.Columns[2].Visible = true;
+                    dataGridView1.Columns[3].Visible = true;
+                    dataGridView1.Columns[4].Visible = true;
+                    dataGridView1.Columns[1].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns[4].HeaderText = "Занято";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
         }
     }
 }

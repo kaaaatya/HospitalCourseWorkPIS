@@ -116,11 +116,6 @@ namespace HospitalView
             LoadData();
         }
 
-        private void buttonTakePatient_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //выбрана строка CurrentRow
@@ -136,11 +131,6 @@ namespace HospitalView
         {
             var form = Container.Resolve<FormSicknessHistory>();
             form.ShowDialog();
-        }
-
-        private void buttonFree_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonSearchByNumber_Click(object sender, EventArgs e)
@@ -181,6 +171,11 @@ namespace HospitalView
                 MessageBox.Show("Введите № страховки для поиска", "Ошибка", MessageBoxButtons.OK,
                   MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonUpd_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

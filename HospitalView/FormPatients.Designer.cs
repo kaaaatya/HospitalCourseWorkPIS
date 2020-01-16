@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonFree = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,22 +36,12 @@
             this.buttonSearchByFIO = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonTakePatient = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.buttonNowTreated = new System.Windows.Forms.Button();
             this.buttonSearchByNumber = new System.Windows.Forms.Button();
+            this.buttonUpd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonFree
-            // 
-            this.buttonFree.Location = new System.Drawing.Point(264, 108);
-            this.buttonFree.Name = "buttonFree";
-            this.buttonFree.Size = new System.Drawing.Size(221, 23);
-            this.buttonFree.TabIndex = 39;
-            this.buttonFree.Text = "Выписать пациента";
-            this.buttonFree.UseVisualStyleBackColor = true;
-            this.buttonFree.Click += new System.EventHandler(this.buttonFree_Click);
             // 
             // buttonCancel
             // 
@@ -123,23 +112,13 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(264, 54);
+            this.buttonAdd.Location = new System.Drawing.Point(264, 82);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(221, 23);
             this.buttonAdd.TabIndex = 40;
             this.buttonAdd.Text = "Добавить пациента";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonTakePatient
-            // 
-            this.buttonTakePatient.Location = new System.Drawing.Point(264, 79);
-            this.buttonTakePatient.Name = "buttonTakePatient";
-            this.buttonTakePatient.Size = new System.Drawing.Size(221, 23);
-            this.buttonTakePatient.TabIndex = 41;
-            this.buttonTakePatient.Text = "Принять пациента";
-            this.buttonTakePatient.UseVisualStyleBackColor = true;
-            this.buttonTakePatient.Click += new System.EventHandler(this.buttonTakePatient_Click);
             // 
             // maskedTextBoxNumber
             // 
@@ -151,7 +130,7 @@
             // 
             // buttonNowTreated
             // 
-            this.buttonNowTreated.Location = new System.Drawing.Point(264, 134);
+            this.buttonNowTreated.Location = new System.Drawing.Point(264, 108);
             this.buttonNowTreated.Name = "buttonNowTreated";
             this.buttonNowTreated.Size = new System.Drawing.Size(221, 23);
             this.buttonNowTreated.TabIndex = 43;
@@ -169,17 +148,26 @@
             this.buttonSearchByNumber.UseVisualStyleBackColor = true;
             this.buttonSearchByNumber.Click += new System.EventHandler(this.buttonSearchByNumber_Click);
             // 
+            // buttonUpd
+            // 
+            this.buttonUpd.Location = new System.Drawing.Point(264, 134);
+            this.buttonUpd.Name = "buttonUpd";
+            this.buttonUpd.Size = new System.Drawing.Size(221, 23);
+            this.buttonUpd.TabIndex = 45;
+            this.buttonUpd.Text = "Обновить";
+            this.buttonUpd.UseVisualStyleBackColor = true;
+            this.buttonUpd.Click += new System.EventHandler(this.buttonUpd_Click);
+            // 
             // FormPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 455);
+            this.Controls.Add(this.buttonUpd);
             this.Controls.Add(this.buttonSearchByNumber);
             this.Controls.Add(this.buttonNowTreated);
             this.Controls.Add(this.maskedTextBoxNumber);
-            this.Controls.Add(this.buttonTakePatient);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.buttonFree);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -197,7 +185,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonFree;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -206,10 +193,10 @@
         private System.Windows.Forms.Button buttonSearchByFIO;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonTakePatient;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Button buttonNowTreated;
         private System.Windows.Forms.Button buttonSearchByNumber;
+        private System.Windows.Forms.Button buttonUpd;
     }
 }
 

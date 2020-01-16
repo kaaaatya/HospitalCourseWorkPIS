@@ -115,5 +115,20 @@ namespace HospitalController
             element.Available = model.Capacity - wasOccupied;
             context.SaveChanges();
         }
+
+        public List<RoomViewModel> CountPationsInEachRoom()
+        {
+            List<RoomViewModel> result = context.Rooms.Select(rec => new
+          RoomViewModel
+            {
+                id = rec.id,
+                RoomNumber = rec.RoomNumber,
+                Gender = rec.Gender,
+                Capacity = rec.Capacity,
+                Available = rec.Capacity - rec.Available
+            })
+            .ToList();
+            return result;
+        }
     }
 }

@@ -141,7 +141,7 @@ namespace HospitalView
                     dataGridView1.Columns[1].Visible = true;
                     dataGridView1.Columns[2].Visible = true;
                     dataGridView1.Columns[3].Visible = true;
-                    dataGridView1.Columns[4].Visible = true;
+                    dataGridView1.Columns[4].Visible = false;
                     dataGridView1.Columns[1].AutoSizeMode =
                         DataGridViewAutoSizeColumnMode.Fill;
                 }

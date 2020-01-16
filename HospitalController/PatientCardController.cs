@@ -34,7 +34,6 @@ namespace HospitalController
             .ToList();
             return result;
         }
-
         public void AddElement(PatientCard model)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -71,7 +70,6 @@ namespace HospitalController
                 }
             }
         }
-
         public List<PatientCardViewModel> getByFIO(string fio)
         {
             List<PatientCardViewModel> result = context.PatientCards.Where(rec => rec.FIO.StartsWith(fio)).Select(rec => new
@@ -92,7 +90,6 @@ namespace HospitalController
             .ToList();
             return result;
         }
-
         public List<PatientCardViewModel> getByNumber(string number)
         {
             List<PatientCardViewModel> result = context.PatientCards.Where(rec => rec.InsuranceNumber == number).Select(rec => new
@@ -112,6 +109,18 @@ namespace HospitalController
             })
             .ToList();
             return result;
+        }
+
+        public string getGenderByFIO(string fio)
+        {
+            PatientCard element = context.PatientCards.FirstOrDefault(rec => rec.FIO ==
+         fio);
+            if (element != null)
+            {
+                string gender = element.Gender;
+                return gender;
+            }
+            return "";
         }
     }
 }
