@@ -154,6 +154,9 @@ namespace HospitalView
                 {
                     int patId = Convert.ToInt32(patientId);
                     serviceHistory.findSicknessHistory(patId, dateTimePicker2.Value);
+                    loadPeople();
+                    loadDoctors();
+                    LoadData();
                 }
                 catch(Exception ex)
                 {

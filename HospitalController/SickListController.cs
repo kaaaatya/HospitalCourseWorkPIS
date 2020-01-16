@@ -19,21 +19,28 @@ namespace HospitalController
         public List<SicknessHistoryViewModel> GetDateReceptionForComboBox(string FIO)
         {
             PatientCard element1 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
-            int patId = element1.Id;
-
-            List<SicknessHistoryViewModel> result = context.SicknessHistories.Where(rec => rec.PatientCardId == patId && rec.DateReception!=rec.Datedischarge).Select(rec => new
-           SicknessHistoryViewModel
+            if (element1 != null)
             {
-                Id = rec.Id,
-                DateReception = rec.DateReception,
-                Temperature = rec.Temperature,
-                Datedischarge = rec.Datedischarge,
-                PatientCardId = rec.PatientCardId,
-                RoomId = rec.RoomId,
-                WorkerId = rec.WorkerId
-            })
-            .ToList();
-            return result;
+                int patId = element1.Id;
+
+                List<SicknessHistoryViewModel> result = context.SicknessHistories.Where(rec => rec.PatientCardId == patId && rec.DateReception != rec.Datedischarge).Select(rec => new
+                 SicknessHistoryViewModel
+                {
+                    Id = rec.Id,
+                    DateReception = rec.DateReception,
+                    Temperature = rec.Temperature,
+                    Datedischarge = rec.Datedischarge,
+                    PatientCardId = rec.PatientCardId,
+                    RoomId = rec.RoomId,
+                    WorkerId = rec.WorkerId
+                })
+                .ToList();
+                return result;
+            }
+            else
+            {
+                throw new Exception("Ошибка при загрузке дат по этому пациенту");
+            }
         }
 
         public string getBirth(string FIO)

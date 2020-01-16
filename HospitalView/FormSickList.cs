@@ -21,21 +21,19 @@ namespace HospitalView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly SickListController service;
-        private readonly SicknessHistoryController serviceHistory;
         private readonly PatientCardController patientService;
         public int Id { set { id = value; } }
         private int? id;
-        public FormSickList(SickListController service, SicknessHistoryController serviceHistory, PatientCardController patientService)
+        public FormSickList(SickListController service, PatientCardController patientService)
         {
             InitializeComponent();
             this.service = service;
-            this.serviceHistory = serviceHistory;
             this.patientService = patientService;
         }
 
         private void FormSickList_Load(object sender, EventArgs e)
         {
-
+            loadPeople();
         }
 
         private void loadPeople()
@@ -52,8 +50,18 @@ namespace HospitalView
 
         private void comboBoxPatient_SelectedIndexChanged(object sender, EventArgs e)
         {
-            service.GetDateReceptionForComboBox(comboBoxPatient.Text);
-            loadDates();
+            if (comboBoxPatient.SelectedItem != null)
+            {
+                try
+                {
+                    loadDates();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+              MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void loadDates()
@@ -61,10 +69,10 @@ namespace HospitalView
             List<SicknessHistoryViewModel> list1 = service.GetDateReceptionForComboBox(comboBoxPatient.Text);
             if (list1 != null)
             {
-                comboBoxPatient.DisplayMember = "DateReception";
-                comboBoxPatient.ValueMember = "Id";
-                comboBoxPatient.DataSource = list1;
-                comboBoxPatient.SelectedItem = null;
+                comboBoxDateReception.DisplayMember = "DateReception";
+                comboBoxDateReception.ValueMember = "Id";
+                comboBoxDateReception.DataSource = list1;
+                comboBoxDateReception.SelectedItem = null;
             }
         }
 
@@ -74,7 +82,9 @@ namespace HospitalView
             {
                 DateTime datePrint = DateTime.Now;
                 string datePrintList = datePrint.ToString("yyyy-MM-dd");
-                string date1 = comboBoxDateReception.Text.Substring(0, 9);
+                string dd = comboBoxDateReception.Text;
+                DateTime da = Convert.ToDateTime(dd);
+                string date1 = da.ToString("yyyy-MM-dd");
                 string patientFIO = comboBoxPatient.Text;
                 string birthDate = service.getBirth(patientFIO);
                 string Gender = service.getGender(patientFIO);
@@ -85,36 +95,42 @@ namespace HospitalView
                 dataGridView1.Columns.Add("Column2", "Моя больница ");
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[0].Cells[1].Value = "Адрес организации ";
-                dataGridView1.Rows[0].Cells[2].Value = "г. Ульяновск, ул Северный венец, д32";
+                dataGridView1.Rows[0].Cells[0].Value = "Адрес организации ";
+                dataGridView1.Rows[0].Cells[1].Value = "г. Ульяновск, ул Северный венец, д32";
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[1].Cells[1].Value = "Дата выдачи: ";
-                dataGridView1.Rows[1].Cells[2].Value = datePrintList;
+                dataGridView1.Rows[1].Cells[0].Value = "Дата выдачи: ";
+                dataGridView1.Rows[1].Cells[1].Value = datePrintList;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[2].Cells[1].Value = "ФИО пациента ";
-                dataGridView1.Rows[2].Cells[2].Value = patientFIO;
+                dataGridView1.Rows[2].Cells[0].Value = "ФИО пациента ";
+                dataGridView1.Rows[2].Cells[1].Value = patientFIO;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[3].Cells[1].Value = "Дата рождения ";
-                dataGridView1.Rows[3].Cells[2].Value = birthDate;
+                dataGridView1.Rows[3].Cells[0].Value = "Дата рождения ";
+                dataGridView1.Rows[3].Cells[1].Value = birthDate;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[4].Cells[1].Value = "Пол ";
-                dataGridView1.Rows[4].Cells[2].Value = Gender;
+                dataGridView1.Rows[4].Cells[0].Value = "Пол ";
+                dataGridView1.Rows[4].Cells[1].Value = Gender;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[5].Cells[1].Value = "Находился на лечении с ";
-                dataGridView1.Rows[5].Cells[2].Value = date1;
+                dataGridView1.Rows[5].Cells[0].Value = "Находился на лечении с ";
+                dataGridView1.Rows[5].Cells[1].Value = date1;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[6].Cells[1].Value = "До ";
-                dataGridView1.Rows[6].Cells[2].Value = dateRelease;
+                dataGridView1.Rows[6].Cells[0].Value = "До ";
+                dataGridView1.Rows[6].Cells[1].Value = dateRelease;
 
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[7].Cells[1].Value = "Лечащий врач ";
-                dataGridView1.Rows[7].Cells[2].Value = doctor;
+                dataGridView1.Rows[7].Cells[0].Value = "Лечащий врач ";
+                dataGridView1.Rows[7].Cells[1].Value = doctor;
+
+                dataGridView1.Columns[1].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns[1].AutoSizeMode =
+                dataGridView1.Columns[0].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
             }
         }
 
