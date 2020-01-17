@@ -92,6 +92,12 @@
     <Compile Include="FormPatients.Designer.cs">
       <DependentUpon>FormPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPatientsFeelings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatientsFeelings.Designer.cs">
+      <DependentUpon>FormPatientsFeelings.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="FormRooms.Designer.cs">
       <DependentUpon>FormRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSickArchieve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSickArchieve.Designer.cs">
+      <DependentUpon>FormSickArchieve.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSickList.cs">
       <SubType>Form</SubType>
@@ -136,11 +148,17 @@
     <EmbeddedResource Include="FormPatients.resx">
       <DependentUpon>FormPatients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientsFeelings.resx">
+      <DependentUpon>FormPatientsFeelings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRooms.resx">
       <DependentUpon>FormRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSickArchieve.resx">
+      <DependentUpon>FormSickArchieve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSickList.resx">
       <DependentUpon>FormSickList.cs</DependentUpon>

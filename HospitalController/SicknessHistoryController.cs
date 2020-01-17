@@ -15,7 +15,7 @@ namespace HospitalController
         {
             this.context = context;
         }
-
+                
         public List<PatientCardViewModel> getTreatedNow()
         {
             List<PatientCardViewModel> result = context.PatientCards.Where(rec => rec.IsTreatedNow == true).Select(rec => new
@@ -32,6 +32,23 @@ namespace HospitalController
                 Status = rec.Status,
                 Gender = rec.Gender,
                 IsTreatedNow = rec.IsTreatedNow
+            })
+            .ToList();
+            return result;
+        }
+
+        public List<SicknessHistoryViewModel> getTreatedNowFromHistory()
+        {
+            List<SicknessHistoryViewModel> result = context.SicknessHistories.Select(rec => new
+          SicknessHistoryViewModel
+            {
+                Id = rec.Id,
+                DateReception = rec.DateReception,
+                Temperature = rec.Temperature,
+                Datedischarge = rec.DateReception,
+                PatientCardId = rec.PatientCardId,
+                RoomId = rec.RoomId,
+                WorkerId = rec.WorkerId
             })
             .ToList();
             return result;
@@ -153,6 +170,13 @@ namespace HospitalController
         {
             SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.PatientCardId == patienId);
             int result = element.RoomId;
+            return result;
+        }
+
+        public string GetTemperatureByPatientId(int patienId)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.PatientCardId == patienId);
+            string result = element.Temperature;
             return result;
         }
 

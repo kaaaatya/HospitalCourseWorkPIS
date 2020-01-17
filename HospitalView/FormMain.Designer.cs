@@ -31,6 +31,7 @@
             this.buttonArchive = new System.Windows.Forms.Button();
             this.buttonPlan = new System.Windows.Forms.Button();
             this.buttonPatients = new System.Windows.Forms.Button();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonArchive
@@ -41,6 +42,7 @@
             this.buttonArchive.TabIndex = 5;
             this.buttonArchive.Text = "Архивация";
             this.buttonArchive.UseVisualStyleBackColor = true;
+            this.buttonArchive.Click += new System.EventHandler(this.buttonArchive_Click);
             // 
             // buttonPlan
             // 
@@ -62,11 +64,22 @@
             this.buttonPatients.UseVisualStyleBackColor = true;
             this.buttonPatients.Click += new System.EventHandler(this.buttonPatients_Click);
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Location = new System.Drawing.Point(12, 99);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(210, 23);
+            this.buttonInfo.TabIndex = 6;
+            this.buttonInfo.Text = "О программе и авторе";
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 113);
+            this.ClientSize = new System.Drawing.Size(230, 126);
+            this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.buttonArchive);
             this.Controls.Add(this.buttonPlan);
             this.Controls.Add(this.buttonPatients);
@@ -81,5 +94,6 @@
         private System.Windows.Forms.Button buttonArchive;
         private System.Windows.Forms.Button buttonPlan;
         private System.Windows.Forms.Button buttonPatients;
+        private System.Windows.Forms.Button buttonInfo;
     }
 }

@@ -31,6 +31,7 @@ namespace HospitalView
 
         private void buttonAddToHistory_Click(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             if (string.IsNullOrEmpty(comboBoxPatient.Text))
             {
                 MessageBox.Show("Выберите пациента", "Ошибка", MessageBoxButtons.OK,
@@ -277,6 +278,12 @@ namespace HospitalView
         private void buttonGetSickList_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormSickList>();
+            form.ShowDialog();
+        }
+
+        private void buttonPatientsFeelings_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormPatientsFeelings>();
             form.ShowDialog();
         }
     }
