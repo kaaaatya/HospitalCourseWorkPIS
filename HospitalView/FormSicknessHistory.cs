@@ -16,12 +16,11 @@ namespace HospitalView
         private readonly PatientCardController service;
         private readonly SicknessHistoryController serviceHistory;
         private readonly RoomsController roomService;
-        private readonly SickListController service1;
         public int Id { set { id = value; } }
         private int? id;
         public string emptyNumber = "";
         public string patientId = "";
-        public FormSicknessHistory(PatientCardController service, SicknessHistoryController serviceHistory, RoomsController roomService, SickListController service1)
+        public FormSicknessHistory(PatientCardController service, SicknessHistoryController serviceHistory, RoomsController roomService)
         {
             InitializeComponent();
             this.service = service;

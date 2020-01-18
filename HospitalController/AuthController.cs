@@ -1,7 +1,5 @@
 ﻿using HospitalModel;
-using HospitalModel.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace HospitalController

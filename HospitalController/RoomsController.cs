@@ -3,8 +3,6 @@ using HospitalModel.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalController
 {
@@ -136,6 +134,13 @@ namespace HospitalController
             Room element = context.Rooms.FirstOrDefault(rec => rec.id == roomId);
             int result = element.RoomNumber;
             return result;
+        }
+
+        public int getFirstRoomId()
+        {
+            Room element = context.Rooms.FirstOrDefault();
+            int firstId = element.id;
+            return firstId;
         }
 
         public List<RoomViewModel> CountFreePlacesEachRoom()

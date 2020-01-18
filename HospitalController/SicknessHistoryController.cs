@@ -3,8 +3,6 @@ using HospitalModel.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalController
 {
@@ -36,7 +34,12 @@ namespace HospitalController
             .ToList();
             return result;
         }
-
+        public int getFirstHistoryId()
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault();
+            int firstId = element.Id;
+            return firstId;
+        }
         public List<SicknessHistoryViewModel> getTreatedNowFromHistory()
         {
             List<SicknessHistoryViewModel> result = context.SicknessHistories.Select(rec => new
@@ -231,6 +234,26 @@ namespace HospitalController
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.Id == model.PatientCardId);
             element2.IsTreatedNow = false;
             context.SaveChanges();
+        }
+
+        public int getRoomIdByHistoryId(int historyId)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.Id == historyId);
+            int result = element.RoomId;
+            return result;
+        }
+
+        public DateTime getFirstDateInTreatment(int historyId)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.Id == historyId);
+            DateTime result = element.DateReception;
+            return result;
+        }
+        public DateTime getLastDateInTreatment(int historyId)
+        {
+            SicknessHistory element = context.SicknessHistories.FirstOrDefault(rec => rec.Id == historyId);
+            DateTime result = element.Datedischarge;
+            return result;
         }
     }
 }

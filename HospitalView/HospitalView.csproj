@@ -45,6 +45,10 @@
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -110,6 +114,12 @@
     <Compile Include="FormRooms.Designer.cs">
       <DependentUpon>FormRooms.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRoomsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRoomsReport.Designer.cs">
+      <DependentUpon>FormRoomsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSickArchieve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRooms.resx">
       <DependentUpon>FormRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRoomsReport.resx">
+      <DependentUpon>FormRoomsReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSickArchieve.resx">
       <DependentUpon>FormSickArchieve.cs</DependentUpon>

@@ -2,12 +2,6 @@
 using HospitalModel.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -21,7 +15,7 @@ namespace HospitalView
         private readonly ArchieveController service1;
         public int Id { set { id = value; } }
         private int? id;
-        public FormSickArchieve(SicknessHistoryController service)
+        public FormSickArchieve(SicknessHistoryController service, ArchieveController service1)
         {
             InitializeComponent();
             this.service = service;

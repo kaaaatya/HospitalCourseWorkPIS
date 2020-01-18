@@ -115,5 +115,11 @@ namespace HospitalView
                MessageBoxIcon.Error);
             }
         }
+
+        private void buttonReportWithRooms_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormRoomsReport>();
+            form.ShowDialog();
+        }
     }
 }

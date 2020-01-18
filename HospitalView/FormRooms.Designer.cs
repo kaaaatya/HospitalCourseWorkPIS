@@ -34,6 +34,7 @@
             this.buttonCountPatients = new System.Windows.Forms.Button();
             this.buttonSelectFreePlaces = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonReportWithRooms = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,11 +96,22 @@
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
+            // buttonReportWithRooms
+            // 
+            this.buttonReportWithRooms.Location = new System.Drawing.Point(426, 128);
+            this.buttonReportWithRooms.Name = "buttonReportWithRooms";
+            this.buttonReportWithRooms.Size = new System.Drawing.Size(209, 23);
+            this.buttonReportWithRooms.TabIndex = 15;
+            this.buttonReportWithRooms.Text = "Загрузка палат по месяцам";
+            this.buttonReportWithRooms.UseVisualStyleBackColor = true;
+            this.buttonReportWithRooms.Click += new System.EventHandler(this.buttonReportWithRooms_Click);
+            // 
             // FormRooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 275);
+            this.Controls.Add(this.buttonReportWithRooms);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSelectFreePlaces);
             this.Controls.Add(this.buttonCountPatients);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button buttonCountPatients;
         private System.Windows.Forms.Button buttonSelectFreePlaces;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonReportWithRooms;
     }
 }
