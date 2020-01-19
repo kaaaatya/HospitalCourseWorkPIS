@@ -15,6 +15,7 @@ namespace HospitalController
             this.service = service;
         }
 
+        //регистрация нового пользователя
         public void AddElement(Worker model)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -48,7 +49,7 @@ namespace HospitalController
             }
         }
 
-        //проверка совпадения логина и пароля
+        //проверка совпадения логина и пароля с учетом шифрования
         public string CheckAuthInfo(string login, string password)
         {
             string pass = service.Encrypt("Login", password);

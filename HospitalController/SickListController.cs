@@ -13,7 +13,7 @@ namespace HospitalController
         {
             this.context = context;
         }
-
+        //получение дат приема пациента
         public List<SicknessHistoryViewModel> GetDateReceptionForComboBox(string FIO)
         {
             PatientCard element1 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
@@ -40,7 +40,7 @@ namespace HospitalController
                 throw new Exception("Ошибка при загрузке дат по этому пациенту");
             }
         }
-
+        // получение даты рождения пациента
         public string getBirth(string FIO)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
@@ -48,28 +48,28 @@ namespace HospitalController
             string birth = birthDate.ToString("yyyy-MM-dd");
             return birth;
         }
-
+        // получение статуса пациента
         public string getStatus(string FIO)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
             string status = element2.Status;
             return status;
         }
-
+        // получение адреса пациента
         public string getAddress(string FIO)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
             string address = element2.Address;
             return address;
         }
-
+        //поулчение пола пациента
         public string getGender(string FIO)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
             string Gender = element2.Gender;
             return Gender;
         }
-
+        //получение даты выписки пациента
         public string getDate2(string FIO, DateTime dateRec)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
@@ -81,7 +81,7 @@ namespace HospitalController
             return dateDis;
 
         }
-
+        //получение данных о лечащем враче
         public string getDoctor(string FIO, DateTime dateRec)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);

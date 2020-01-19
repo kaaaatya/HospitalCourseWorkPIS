@@ -2,7 +2,6 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -16,8 +15,6 @@ namespace HospitalView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly SicknessHistoryController serviceHistory;
-        public int Id { set { id = value; } }
-        private int? id;
         public FormDiagramm(SicknessHistoryController serviceHistory)
         {
             InitializeComponent();
@@ -96,9 +93,7 @@ namespace HospitalView
                     chart1.SaveImage(sfd.FileName + ".png", System.Drawing.Imaging.ImageFormat.Png);                 
 
                     Document document = new Document();
-                    Stream myStream;
                     using (var stream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
-
                     {
                         PdfWriter.GetInstance(document, stream);
                         document.Open();

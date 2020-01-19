@@ -17,6 +17,7 @@ namespace HospitalController
             this.context = context;
         }
 
+        //удаление элемента из БД
         public void delElement(int id)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -44,6 +45,7 @@ namespace HospitalController
             }
         }
 
+        //сохранение удаленного элемента в Json файл
         public async Task SaveToJsonAsync(string fileName)
         {
             DataContractJsonSerializer formatterPeople = new DataContractJsonSerializer(typeof(List<SicknessHistory>));

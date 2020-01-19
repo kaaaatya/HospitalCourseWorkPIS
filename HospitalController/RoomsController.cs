@@ -13,7 +13,7 @@ namespace HospitalController
         {
             this.context = context;
         }
-
+        //список всех палат в больнице
         public List<RoomViewModel> GetList()
         {
             List<RoomViewModel > result = context.Rooms.Select(rec => new
@@ -28,6 +28,7 @@ namespace HospitalController
             .ToList();
             return result;
         }
+        //добавление новой палаты
         public void AddElement(Room model)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -58,7 +59,7 @@ namespace HospitalController
                 }
             }
         }
-
+        //удаление палаты
         public void DelElement(int number)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -85,6 +86,7 @@ namespace HospitalController
                 }
             }
         }
+        //обновление данных о палате
         public void UpdElement(Room model)
         {
             Room element = context.Rooms.FirstOrDefault(rec => rec.RoomNumber ==
@@ -113,7 +115,7 @@ namespace HospitalController
             element.Available = model.Capacity - wasOccupied;
             context.SaveChanges();
         }
-
+        //подсчет кол-ва пациентов в каждой палате
         public List<RoomViewModel> CountPationsInEachRoom()
         {
             List<RoomViewModel> result = context.Rooms.Select(rec => new
@@ -128,13 +130,14 @@ namespace HospitalController
             .ToList();
             return result;
         }
-
+        //получениие номера палаты по id
         public int GetRoomNumberById(int roomId)
         {
             Room element = context.Rooms.FirstOrDefault(rec => rec.id == roomId);
             int result = element.RoomNumber;
             return result;
         }
+        //получение id первой палаты
 
         public int getFirstRoomId()
         {
@@ -142,7 +145,7 @@ namespace HospitalController
             int firstId = element.id;
             return firstId;
         }
-
+        //подсчет кол-ва свободных мест в каждой палате
         public List<RoomViewModel> CountFreePlacesEachRoom()
         {
             List<RoomViewModel> result = context.Rooms.Select(rec => new

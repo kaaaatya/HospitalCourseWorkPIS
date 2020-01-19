@@ -12,8 +12,6 @@ namespace HospitalView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly RoomsController service;
-        public int Id { set { id = value; } }
-        private int? id;
         public FormRooms(RoomsController service)
         {
             InitializeComponent();

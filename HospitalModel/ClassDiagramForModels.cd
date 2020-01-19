@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HospitalModel.HospitalDbContext">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAABAAAAAAAAAAAQACAAAAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>HospitalDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.PatientCard">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAECBAAAACAABAAQAYAAAAAAAACAAAAAAAAAIA=</HashCode>
+      <FileName>PatientCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.Room">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAACAAAAAIABCAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.Service">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.SicknessHistory">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABACAIAAAAAAABAAAQAAAAAAAAAAAAAAAwAEAAA=</HashCode>
+      <FileName>SicknessHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.Treatment">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASACAAAAAQAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Treatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.Worker">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAABAAAAAgEAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Worker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.ViewModels.PatientCardViewModel">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAECAAAAACAABAAQAYAAAAAAAACAAAAAAAAAIA=</HashCode>
+      <FileName>ViewModels\PatientCardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.ViewModels.RoomViewModel">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAIABCAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\RoomViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.ViewModels.SicknessHistoryViewModel">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAwAEAAA=</HashCode>
+      <FileName>ViewModels\SicknessHistoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalModel.ViewModels.WokerViewModel">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAgEAAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\WokerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

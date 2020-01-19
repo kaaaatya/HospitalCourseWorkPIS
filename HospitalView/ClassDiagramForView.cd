@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HospitalView.FormAuth">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAQAACAAAJAACACAAAACAAAAAAAAAUAAAIAAAAA=</HashCode>
+      <FileName>FormAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormDiagramm">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAWAACAAQAACAADAABACAAgAAAAAIBAAAAAAAAA=</HashCode>
+      <FileName>FormDiagramm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormMain">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAQAACAAAAAAAACYAAhCAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormPatient">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cAgAAAQAASAAABAAAACAAAECAYAAEAAASEAAAAAAAAQ=</HashCode>
+      <FileName>FormPatient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormPatients">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAQgDAAABigBjACEAgiAAAJQERAAAAAAAA=</HashCode>
+      <FileName>FormPatients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormPatientsFeelings">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAUAACAQABAAAADAIAACAAgAAAAAIEABAAAAAAA=</HashCode>
+      <FileName>FormPatientsFeelings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormRoom">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAASAQiBAAAAiAAgACAAggAAAIEEBAAIBAAiA=</HashCode>
+      <FileName>FormRoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormRooms">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAQQACAQhBAAgACAQIACAAgAAAAIAEAAAAIQAAA=</HashCode>
+      <FileName>FormRooms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormRoomsReport">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAUAACAAQBAAAACAABACAAgAAAAAIEIQAAAAAgA=</HashCode>
+      <FileName>FormRoomsReport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormSickArchieve">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAACAQABAgAACAAAACAAggAAQAAEAAAIAAAiA=</HashCode>
+      <FileName>FormSickArchieve.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormSickList">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAACAAQAACAAQBwAAADBABACAAgAAAAAoECAAIAACgA=</HashCode>
+      <FileName>FormSickList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormSicknessHistory">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAADAgeIgCAwABQCAADFYAACQEggAAAAiESAAEIACgA=</HashCode>
+      <FileName>FormSicknessHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.FormSignUp">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAQAACAAABAACACAAAACAAIAAAAAQUAAAIAIAgA=</HashCode>
+      <FileName>FormSignUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.Program">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.Properties.Resources">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalView.Properties.Settings">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

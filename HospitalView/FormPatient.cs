@@ -10,8 +10,6 @@ namespace HospitalView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        public int Id { set { id = value; } }
-        private int? id;
         private readonly PatientCardController service;
         public FormPatient(PatientCardController service)
         {
