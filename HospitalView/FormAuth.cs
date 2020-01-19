@@ -43,7 +43,7 @@ namespace HospitalView
                 }
                 else
                 {
-                    MessageBox.Show("Неправильный логин или пароль", "Ошибка", MessageBoxButtons.OK,
+                    MessageBox.Show(res, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
                 }
             }
@@ -53,12 +53,7 @@ namespace HospitalView
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormSignUp>();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                var form1 = Container.Resolve<FormMain>();
-                form.Visible = false;
-                form1.ShowDialog();
-            }
+            form.ShowDialog();
         }
     }
 }

@@ -47,7 +47,7 @@
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(241, 23);
             this.buttonSignUp.TabIndex = 0;
-            this.buttonSignUp.Text = "Зарегестрироваться";
+            this.buttonSignUp.Text = "Зарегистрироваться";
             this.buttonSignUp.UseVisualStyleBackColor = true;
             this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
@@ -135,6 +135,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(241, 20);
             this.textBoxPassword.TabIndex = 10;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // FormSignUp
             // 
