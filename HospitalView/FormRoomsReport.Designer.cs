@@ -32,7 +32,7 @@
             this.maskedTextBoxYear = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonSaveToPDF = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,22 +73,22 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // buttonSaveToPDF
+            // buttonSave
             // 
-            this.buttonSaveToPDF.Location = new System.Drawing.Point(330, 1);
-            this.buttonSaveToPDF.Name = "buttonSaveToPDF";
-            this.buttonSaveToPDF.Size = new System.Drawing.Size(116, 23);
-            this.buttonSaveToPDF.TabIndex = 4;
-            this.buttonSaveToPDF.Text = "Сохранить в ПДФ";
-            this.buttonSaveToPDF.UseVisualStyleBackColor = true;
-            this.buttonSaveToPDF.Click += new System.EventHandler(this.buttonSaveToPDF_Click);
+            this.buttonSave.Location = new System.Drawing.Point(330, 1);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(116, 23);
+            this.buttonSave.TabIndex = 4;
+            this.buttonSave.Text = "Сохранить Excel";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSaveToPDF_Click);
             // 
             // FormRoomsReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 298);
-            this.Controls.Add(this.buttonSaveToPDF);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.maskedTextBoxYear);
@@ -108,6 +108,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxYear;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.Button buttonSaveToPDF;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

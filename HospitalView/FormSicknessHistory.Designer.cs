@@ -47,6 +47,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonPatientsFeelings = new System.Windows.Forms.Button();
+            this.buttonDiagramm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,11 +222,22 @@
             this.buttonPatientsFeelings.UseVisualStyleBackColor = true;
             this.buttonPatientsFeelings.Click += new System.EventHandler(this.buttonPatientsFeelings_Click);
             // 
+            // buttonDiagramm
+            // 
+            this.buttonDiagramm.Location = new System.Drawing.Point(598, 67);
+            this.buttonDiagramm.Name = "buttonDiagramm";
+            this.buttonDiagramm.Size = new System.Drawing.Size(200, 23);
+            this.buttonDiagramm.TabIndex = 61;
+            this.buttonDiagramm.Text = "Диаграмма по пациентам";
+            this.buttonDiagramm.UseVisualStyleBackColor = true;
+            this.buttonDiagramm.Click += new System.EventHandler(this.buttonDiagramm_Click);
+            // 
             // FormSicknessHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 508);
+            this.Controls.Add(this.buttonDiagramm);
             this.Controls.Add(this.buttonPatientsFeelings);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label6);
@@ -275,5 +287,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonPatientsFeelings;
+        private System.Windows.Forms.Button buttonDiagramm;
     }
 }

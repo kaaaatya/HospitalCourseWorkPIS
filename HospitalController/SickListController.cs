@@ -49,6 +49,20 @@ namespace HospitalController
             return birth;
         }
 
+        public string getStatus(string FIO)
+        {
+            PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
+            string status = element2.Status;
+            return status;
+        }
+
+        public string getAddress(string FIO)
+        {
+            PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);
+            string address = element2.Address;
+            return address;
+        }
+
         public string getGender(string FIO)
         {
             PatientCard element2 = context.PatientCards.FirstOrDefault(rec => rec.FIO == FIO);

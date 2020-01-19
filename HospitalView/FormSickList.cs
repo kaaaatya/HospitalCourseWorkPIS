@@ -72,6 +72,8 @@ namespace HospitalView
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
             if ((comboBoxPatient.Text != "") && (comboBoxDateReception.Text!=""))
             {
                 DateTime datePrint = DateTime.Now;
@@ -188,6 +190,69 @@ namespace HospitalView
                 pdfDoc.Add(table);
                 pdfDoc.Close();
                 stream.Close();
+            }
+
+        }
+
+        private void buttonTreatmentInfo_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            if ((comboBoxPatient.Text != "") && (comboBoxDateReception.Text != ""))
+            {
+                DateTime datePrint = DateTime.Now;
+                string datePrintList = datePrint.ToString("yyyy-MM-dd");
+                string dd = comboBoxDateReception.Text;
+                DateTime da = Convert.ToDateTime(dd);
+                string date1 = da.ToString("yyyy-MM-dd");
+                string patientFIO = comboBoxPatient.Text;
+                string birthDate = service.getBirth(patientFIO);
+                string Gender = service.getGender(patientFIO);
+                string dateRelease = service.getDate2(patientFIO, Convert.ToDateTime(comboBoxDateReception.Text));
+                string doctor = service.getDoctor(patientFIO, Convert.ToDateTime(comboBoxDateReception.Text));
+                string status = service.getStatus(patientFIO);
+                string address = service.getAddress(patientFIO);
+
+                dataGridView1.Columns.Add("Column1", "Выписка из истории болезни");
+                dataGridView1.Columns.Add("Column2", "пациента");
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[0].Cells[0].Value = "ФИО пациента ";
+                dataGridView1.Rows[0].Cells[1].Value = patientFIO;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[1].Cells[0].Value = "Дата рождения ";
+                dataGridView1.Rows[1].Cells[1].Value = birthDate;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[2].Cells[0].Value = "Занятость ";
+                dataGridView1.Rows[2].Cells[1].Value = status;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[3].Cells[0].Value = "Находился на лечении с ";
+                dataGridView1.Rows[3].Cells[1].Value = date1;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[4].Cells[0].Value = "До ";
+                dataGridView1.Rows[4].Cells[1].Value = dateRelease;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[5].Cells[0].Value = "Адрес учреждения ";
+                dataGridView1.Rows[5].Cells[1].Value = "г. Ульяновск, ул Северный венец, д32";
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[6].Cells[0].Value = "Лечащий врач ";
+                dataGridView1.Rows[6].Cells[1].Value = doctor;
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[7].Cells[0].Value = "Выписка выдана ";
+                dataGridView1.Rows[7].Cells[1].Value = DateTime.Now.ToString("yyyy-MM-dd");
+
+                dataGridView1.Columns[1].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns[1].AutoSizeMode =
+                dataGridView1.Columns[0].AutoSizeMode =
+                        DataGridViewAutoSizeColumnMode.Fill;
             }
 
         }

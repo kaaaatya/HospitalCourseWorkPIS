@@ -1,7 +1,9 @@
 ﻿using HospitalController;
 using HospitalModel.ViewModels;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using Unity;
 
@@ -24,10 +26,10 @@ namespace HospitalView
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            List<RoomViewModel> list = service.GetList();
+            dataGridView1.Rows.Clear();            
             if ((maskedTextBoxYear.Text != null)&&(maskedTextBoxYear.Text!=""))
             {
+                List<RoomViewModel> list = service.GetList();
                 int year = Convert.ToInt32(maskedTextBoxYear.Text);
                 int firstId = service.getFirstRoomId();
                 int roomsAmount = list.Count;
@@ -70,9 +72,96 @@ namespace HospitalView
 
         private void buttonSaveToPDF_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "xls|*.xls|xlsx|*.xlsx"
+            };
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    saveXls(sfd.FileName);
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
         }
+        public void saveXls(string FileName)
+        {
+            var excel = new Microsoft.Office.Interop.Excel.Application();
+            try
+            {
+                if (File.Exists(FileName))
+                {
+                    excel.Workbooks.Open(FileName, Type.Missing, Type.Missing,
+                   Type.Missing,
+                    Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                   Type.Missing,
+                    Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                   Type.Missing,
+                    Type.Missing);
+                }
+                else
+                {
+                    excel.SheetsInNewWorkbook = 1;
+                    excel.Workbooks.Add(Type.Missing);
+                    excel.Workbooks[1].SaveAs(FileName, XlFileFormat.xlExcel8,
+                    Type.Missing,
+                     Type.Missing, false, false, XlSaveAsAccessMode.xlNoChange,
+                    Type.Missing,
+                     Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                }
+                Sheets excelsheets = excel.Workbooks[1].Worksheets;
 
+                var excelworksheet = (Worksheet)excelsheets.get_Item(1);
+                excelworksheet.Cells.Clear();
+                Microsoft.Office.Interop.Excel.Range excelcells = excelworksheet.get_Range("A1", "H1");
+                excelcells.Merge(Type.Missing);
+                excelcells.Font.Bold = true;
+                string title = "Загрузка палат по месяцам " + maskedTextBoxYear.Text + " года" + "\r\n" + "Составлено " + DateTime.Now.ToString(); 
+                excelcells.Value2 = title;
+                excelcells.RowHeight = 40;
+                excelcells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                excelcells.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                excelcells.Font.Name = "Times New Roman";
+                excelcells.Font.Size = 14;
+
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    excelcells = excelworksheet.get_Range("B3", "B3");
+                    excelcells = excelcells.get_Offset(0, j);
+                    excelcells.ColumnWidth = 15;
+                    excelcells.Value2 = dataGridView1.Columns[j].HeaderCell.Value.ToString();
+                    excelcells.Font.Bold = true;
+                }
+
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        excelcells = excelworksheet.get_Range("B4", "B4");
+                        excelcells = excelcells.get_Offset(i, j);
+                        excelcells.ColumnWidth = 15;
+                        excelcells.Value2 = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                excelcells = excelcells.get_Offset(1, 0);
+                excelcells.Font.Bold = true;
+                excel.Workbooks[1].Save();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                excel.Quit();
+            }
+        }
         private void FormRoomsReport_Load(object sender, EventArgs e)
         {            
             dataGridView1.Columns.Add("0", "Номер палаты");

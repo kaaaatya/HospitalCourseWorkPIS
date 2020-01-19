@@ -153,27 +153,25 @@ namespace HospitalView
                 try
                 {
                     int patId = Convert.ToInt32(patientId);
-                    serviceHistory.findSicknessHistory(patId, dateTimePicker2.Value);
-                    loadPeople();
-                    loadDoctors();
-                    LoadData();
+                    serviceHistory.findSicknessHistory(patId, dateTimePicker2.Value);                    
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
-                }                
-            }
-            else
-            {
-                MessageBox.Show("Выберите пациента", "Ошибка", MessageBoxButtons.OK,
-              MessageBoxIcon.Error);
-            }           
+                }
+                finally
+                {
+                    loadPeople();
+                    loadDoctors();
+                    LoadData();
+                }
+            }        
 
         }
 
         private void LoadData()
-        {            
+        {
             try
             {
                 List<PatientCardViewModel> list = serviceHistory.getTreatedNow();
@@ -189,19 +187,19 @@ namespace HospitalView
                     dataGridView1.Columns[6].Visible = false;
                     dataGridView1.Columns[7].Visible = false;
                     dataGridView1.Columns[8].Visible = false;
-                    dataGridView1.Columns[9].Visible = false;
+                    dataGridView1.Columns[9].Visible = true;
                     dataGridView1.Columns[10].Visible = true;
                     dataGridView1.Columns[10].ReadOnly = true;
                     dataGridView1.Columns[1].AutoSizeMode =
                         DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridView1.Columns.Add("Column11", "Палата");
+                    dataGridView1.Columns[9].HeaderText = "Палата";
                     int patientsAmount = dataGridView1.Rows.Count - 1;
                     for (int i = 0; i <= patientsAmount; i++)
                     {
                         int patientId = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
                         int roomId = serviceHistory.GetRoomIdByPatientId(patientId);
                         int roomNumber = roomService.GetRoomNumberById(roomId);
-                        dataGridView1.Rows[i].Cells[11].Value = roomNumber.ToString();
+                        dataGridView1.Rows[i].Cells[9].Value = roomNumber.ToString();
                     }
                 }
             }
@@ -283,6 +281,12 @@ namespace HospitalView
         private void buttonPatientsFeelings_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormPatientsFeelings>();
+            form.ShowDialog();
+        }
+
+        private void buttonDiagramm_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormDiagramm>();
             form.ShowDialog();
         }
     }

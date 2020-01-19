@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxPatient = new System.Windows.Forms.ComboBox();
             this.comboBoxDateReception = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonTreatmentInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,20 +44,11 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(437, 358);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Форма больничного листа:";
             // 
             // label2
             // 
@@ -96,7 +87,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(462, 119);
+            this.buttonCreate.Location = new System.Drawing.Point(462, 111);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(265, 23);
             this.buttonCreate.TabIndex = 6;
@@ -106,29 +97,39 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(462, 148);
+            this.buttonSave.Location = new System.Drawing.Point(462, 169);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(265, 23);
             this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Сохранить больничный лист";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonTreatmentInfo
+            // 
+            this.buttonTreatmentInfo.Location = new System.Drawing.Point(462, 140);
+            this.buttonTreatmentInfo.Name = "buttonTreatmentInfo";
+            this.buttonTreatmentInfo.Size = new System.Drawing.Size(265, 23);
+            this.buttonTreatmentInfo.TabIndex = 8;
+            this.buttonTreatmentInfo.Text = "Сформировать выписку из истории болезни";
+            this.buttonTreatmentInfo.UseVisualStyleBackColor = true;
+            this.buttonTreatmentInfo.Click += new System.EventHandler(this.buttonTreatmentInfo_Click);
             // 
             // FormSickList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 384);
+            this.Controls.Add(this.buttonTreatmentInfo);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxDateReception);
             this.Controls.Add(this.comboBoxPatient);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormSickList";
-            this.Text = "Больничный лист";
+            this.Text = "Больничный лист и выписка из истории болезни";
             this.Load += new System.EventHandler(this.FormSickList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -139,12 +140,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxPatient;
         private System.Windows.Forms.ComboBox comboBoxDateReception;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonTreatmentInfo;
     }
 }
